@@ -1,0 +1,27 @@
+<form [formGroup]="loginForm" novalidate 
+  (submit)="onSubmitLogin(loginForm)">
+  
+  <div>
+    <label>Username:
+      <input formControlName="username">
+    </label>
+    <div class="error" *ngIf="loginForm.controls.username.errors?.required && loginForm.controls.username.touched">
+      Please fill out the username
+    </div>
+  </div>
+
+  <div>
+    <label>Password:
+      <input type="password" formControlName="password">
+    </label>
+    <div class="error" *ngIf="loginForm.controls.password.errors?.required && loginForm.controls.password.touched">
+      Please fill out the password
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="loginForm.invalid">Login</button>
+
+
+  <p>Form value: {{ loginForm.value | json }}</p>
+  <p>Is form valid: {{ loginForm.valid | json }}</p>
+</form>
