@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,8 +11,7 @@ export class LoginComponent implements OnInit {
   private loginForm: FormGroup;
   
   // DI - Dependency Injection
-  constructor(private fb: FormBuilder) {
-
+  constructor(private fb: FormBuilder, private router: Router) {
   }
 
   onSubmitLogin(loginForm) {
@@ -21,9 +21,10 @@ export class LoginComponent implements OnInit {
     if (loginForm.valid) {
       // Send an http request
       console.log("valid");
+      this.router.navigate(['contact']); // Navigate
     } else {
       // Show errors and not send a request.
-      alert("Fill out the fields, dummy!")
+      alert("Fill out the fields, dummy! ")
     }
   }
 
