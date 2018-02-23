@@ -1,3 +1,4 @@
+import { AuthService } from './../auth.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms'
 import { Router } from '@angular/router';
@@ -11,7 +12,8 @@ export class LoginComponent implements OnInit {
   private loginForm: FormGroup;
   
   // DI - Dependency Injection
-  constructor(private fb: FormBuilder, private router: Router) {
+  constructor(private fb: FormBuilder, private router: Router, 
+    private authService: AuthService) {
   }
 
   onSubmitLogin(loginForm) {
@@ -21,7 +23,13 @@ export class LoginComponent implements OnInit {
     if (loginForm.valid) {
       // Send an http request
       console.log("valid");
-      this.router.navigate(['contact']); // Navigate
+      this.authService.login().subscribe(() => {
+        console.log("Now I am logged in!");
+      })
+      console.log("Before or after?");
+
+
+      // this.router.navigate(['contact']); // Navigate
     } else {
       // Show errors and not send a request.
       alert("Fill out the fields, dummy! ")

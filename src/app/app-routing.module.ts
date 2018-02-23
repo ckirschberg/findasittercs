@@ -4,10 +4,12 @@ import { LoginComponent } from './login/login.component';
 import { ContactComponent } from './contact/contact.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { RegisterComponent } from './register/register.component';
+import { AuthGuard } from './auth-guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full'},
-  { path: 'contact', component: ContactComponent, children: [
+  { path: 'contact', component: ContactComponent, canActivate: [AuthGuard],
+  children: [
     // { path: 'baby-list', component: BabyListComponent},
     // { path: 'sitter-list', component: SitterListComponent},
     // {}
