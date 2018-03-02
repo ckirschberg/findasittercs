@@ -1,3 +1,4 @@
+import { DataService } from './data.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -26,7 +27,7 @@ import { AuthService } from './auth.service';
     ReactiveFormsModule,
     AppRoutingModule
   ],
-  providers: [AuthGuard, AuthService],
+  providers: [AuthGuard, AuthService, DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
