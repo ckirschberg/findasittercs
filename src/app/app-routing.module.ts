@@ -5,6 +5,7 @@ import { ContactComponent } from './contact/contact.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthGuard } from './auth-guard';
+import { UsersListComponent } from './users-list/users-list.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -15,6 +16,7 @@ const routes: Routes = [
     // {}
   ] },
   { path: 'login', component: LoginComponent },
+  { path: 'users-list', component: UsersListComponent },
   { path: 'register', component: RegisterComponent },
   { path: '**', component: PageNotFoundComponent },
 ];

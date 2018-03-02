@@ -47,9 +47,12 @@ export class DataService {
 
   constructor() { }
 
-  addBaby(baby: Baby) {
+  public addBaby(baby: Baby) {
     this.babies.push(baby);
     console.log(this.babies);
+  }
+  public getBabies(): Baby[] {
+    return this.babies;
   }
 
 }
