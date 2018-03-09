@@ -23,8 +23,15 @@ export class LoginComponent implements OnInit {
     if (loginForm.valid) {
       // Send an http request
       console.log("valid");
+
+      let x = this.authService.login();
+
+
       this.authService.login().subscribe(() => {
         console.log("Now I am logged in!");
+        
+        // How to navigate in typescript code.
+        this.router.navigate(['users-list']);
       })
       console.log("Before or after?");
 
