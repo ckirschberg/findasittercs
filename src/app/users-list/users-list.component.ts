@@ -16,4 +16,8 @@ export class UsersListComponent implements OnInit {
     this.babies = this.data.getBabies();
   }
 
+  onBabyClicked(obj) {
+    console.log("baby", obj.baby);
+    console.log("test " + obj.test);
+  }
 }

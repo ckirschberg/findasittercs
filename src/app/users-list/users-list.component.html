@@ -1,4 +1,7 @@
 
 <div *ngFor="let baby of babies" class="e2e-baby">
-  {{baby.firstname}} {{baby.gender}}
+  <app-user 
+    [babyInput]="baby"
+    (babyClicked)="onBabyClicked($event)">
+  </app-user>
 </div>

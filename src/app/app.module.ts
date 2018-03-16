@@ -13,6 +13,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { AuthGuard } from './auth-guard';
 import { AuthService } from './auth.service';
 import { UsersListComponent } from './users-list/users-list.component';
+import { UserComponent } from './users-list/user/user.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { UsersListComponent } from './users-list/users-list.component';
     ContactComponent,
     RegisterComponent,
     PageNotFoundComponent,
-    UsersListComponent
+    UsersListComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
