@@ -1,6 +1,7 @@
 import { DataService } from './data.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -15,6 +16,7 @@ import { AuthService } from './auth.service';
 import { UsersListComponent } from './users-list/users-list.component';
 import { UserComponent } from './users-list/user/user.component';
 
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { UserComponent } from './users-list/user/user.component';
   imports: [
     BrowserModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatInputModule
   ],
   providers: [AuthGuard, AuthService, DataService],
   bootstrap: [AppComponent]
