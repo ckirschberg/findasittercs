@@ -3,6 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Baby } from '../entities/baby';
 import { Router } from '@angular/router';
+import { NgRedux } from '@angular-redux/store';
+import { IAppState } from '../store/store';
+import { UsersActions } from '../users.actions';
 
 @Component({
   selector: 'app-register',
@@ -11,11 +14,20 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
   private registerForm;
+  private isBaby;
 
   constructor(private data: DataService,
-    private fb: FormBuilder, private router: Router) { }
+    private fb: FormBuilder, private router: Router,
+    private ngRedux: NgRedux<IAppState>, private usersActions: UsersActions) { }
 
   ngOnInit() {
+
+    // Subscribe to the users part of the store.
+    this.ngRedux.select(state => state.users).subscribe(res => {
+      this.isBaby = res.isBaby;
+      console.log(this.isBaby);
+    });
+
     this.registerForm = this.fb.group({
       firstname: [''],
       postalCode: [''],

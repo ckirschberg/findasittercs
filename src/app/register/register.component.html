@@ -1,3 +1,9 @@
+<!-- Dispatch actions -->
+<button (click)="usersActions.setType(true)">Set to true</button>
+<button (click)="usersActions.setType(false)">Set to false</button>
+
+{{isBaby}}
+
 <form novalidate [formGroup]="registerForm" 
   (submit)="onSubmit(registerForm)">
   <div>
