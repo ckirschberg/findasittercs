@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Baby } from './entities/baby';
 import { Sitter } from './entities/sitter';
 
+// Now we use Redux (and therefore not the DataService anymore)
 @Injectable()
 export class DataService {
 
