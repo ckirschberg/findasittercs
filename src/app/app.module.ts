@@ -45,14 +45,13 @@ import { UsersActions } from './users.actions';
   bootstrap: [AppComponent]
 })
 export class AppModule {
+
   constructor(private ngRedux: NgRedux<IAppState>,
     private devTool: DevToolsExtension,
-    private ngReduxRouter: NgReduxRouter,) {
-   
-    this.ngRedux.configureStore(
-      rootReducer, {});
- 
-      ngReduxRouter.initialize(/* args */);   
+    private ngReduxRouter: NgReduxRouter,) { 
+  
+      this.ngRedux.configureStore(rootReducer, {}, [],[ devTool.isEnabled() ? devTool.enhancer() : f => f]);
+      ngReduxRouter.initialize(/* args */);  
   }
- 
  }
+ 

@@ -40,7 +40,8 @@ export class RegisterComponent implements OnInit {
   onSubmit(registerForm) {
     // if (form is valid) {
       let baby: Baby = registerForm.value;
-      this.data.addBaby(baby);
+      this.usersActions.addBaby(baby);
+      // this.data.addBaby(baby);
       this.router.navigate(['users-list']);
     // }
   

@@ -20,10 +20,12 @@ export class UsersActions {
      });
    }
 
-   addBaby(baby: Baby) {
+   addBaby(baby: Baby) : void {
      this.ngRedux.dispatch({
        type: UsersActions.ADD_BABY,
        payload: baby
+       //Example of passing multiple parameters to reducer by passing an object
+       //payload: {baby, sitterName}
      })
    }
 }

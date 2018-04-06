@@ -25,6 +25,7 @@ export class DataService {
 
   private sitters: Sitter[] = [
     {
+      ratings: [],
       firstname: 'Bob',
       lastname: 'Alisan',
       age: 16,
@@ -35,6 +36,7 @@ export class DataService {
       phone: '12345678'
     },
     {
+      ratings: [],
       firstname: 'Christian',
       lastname: 'Kirschberg',
       age: 29,

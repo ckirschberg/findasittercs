@@ -7,4 +7,5 @@ export class Sitter {
   public picture: String;
   public gender: String;
   public phone: String;
+  public ratings: number[];
 }

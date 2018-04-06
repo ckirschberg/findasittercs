@@ -5,7 +5,7 @@ import { Baby } from '../entities/baby';
 
 export class UsersState {
  isBaby: boolean;
- babies?: Baby[];
+ babies: Baby[];
 }
 export class IAppState {
  users?: UsersState;
