@@ -6,7 +6,12 @@ import { Baby } from "./entities/baby";
 export class UsersService {
   constructor(private http: HttpClient) {
   }
-  
+  updateBaby() {
+  }
+
+  deleteBaby() {
+  }
+
   createBaby(baby: Baby) {
     baby.customerId = '3';
     return this.http.post("http://angular2api2.azurewebsites.net/api/internships", baby);
