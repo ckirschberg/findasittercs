@@ -1,3 +1,4 @@
+import { UsersService } from './users.service';
 import { DataService } from './data.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -22,6 +23,7 @@ import { NgRedux, DevToolsExtension, NgReduxModule } from '@angular-redux/store'
 import { IAppState } from './store/store';
 import { NgReduxRouter, NgReduxRouterModule } from '@angular-redux/router';
 import { UsersActions } from './users.actions';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,7 @@ import { UsersActions } from './users.actions';
     UserComponent
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     ReactiveFormsModule,
     AppRoutingModule,
@@ -41,7 +44,7 @@ import { UsersActions } from './users.actions';
     MatInputModule,
     NgReduxModule,   NgReduxRouterModule.forRoot()
   ],
-  providers: [AuthGuard, AuthService, DataService, UsersActions],
+  providers: [AuthGuard, AuthService, DataService, UsersActions, UsersService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

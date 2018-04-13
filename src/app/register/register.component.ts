@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { NgRedux } from '@angular-redux/store';
 import { IAppState } from '../store/store';
 import { UsersActions } from '../users.actions';
+import { UsersService } from '../users.service';
 
 @Component({
   selector: 'app-register',
@@ -18,7 +19,8 @@ export class RegisterComponent implements OnInit {
 
   constructor(private data: DataService,
     private fb: FormBuilder, private router: Router,
-    private ngRedux: NgRedux<IAppState>, private usersActions: UsersActions) { }
+    private ngRedux: NgRedux<IAppState>, private usersActions: UsersActions,
+    private usersService: UsersService) { }
 
   ngOnInit() {
 
@@ -39,10 +41,16 @@ export class RegisterComponent implements OnInit {
 
   onSubmit(registerForm) {
     // if (form is valid) {
-      let baby: Baby = registerForm.value;
-      this.usersActions.addBaby(baby);
-      // this.data.addBaby(baby);
-      this.router.navigate(['users-list']);
+    let baby: Baby = registerForm.value;
+    // Test: calling the ws.
+    this.usersService.createBaby(baby).subscribe(x => {
+      console.log(x);
+    });
+
+    this.usersActions.addBaby(baby);
+
+    // this.data.addBaby(baby);
+    // this.router.navigate(['users-list']);
     // }
   
 
