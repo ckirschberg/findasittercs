@@ -9,7 +9,8 @@ export class UsersService {
   updateBaby() {
   }
 
-  deleteBaby() {
+  deleteBaby(baby: Baby) {
+    return this.http.delete("http://angular2api2.azurewebsites.net/api/internships/" + baby._id);
   }
 
   createBaby(baby: Baby) {
