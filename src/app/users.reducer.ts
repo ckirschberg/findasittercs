@@ -18,6 +18,18 @@ const INITIAL_STATE: UsersState = {isBaby: undefined, babies: [],
 export function usersReducer(state: UsersState = INITIAL_STATE, action:any) {
  
   switch (action.type) {
+
+    case UsersActions.GET_USERS: // The component wants the data
+      return state;
+    case UsersActions.GET_USERS_SUCCESS: // The ws sent back the users.
+      //action.payload: an array of users
+      return tassign(state, {babies: action.payload});
+      
+      // return state;
+    case UsersActions.GET_USERS_FAILURE: // The ws failed or something else bad
+      return state;
+
+
     case UsersActions.ADD_RATING:
       // action.payload: {id, rating}
       let sitters = [...state.sitters];
@@ -26,7 +38,7 @@ export function usersReducer(state: UsersState = INITIAL_STATE, action:any) {
       let newRatings = [...sitters[index].ratings];
       newRatings.push(action.payload.rating);
       sitters[index].ratings = newRatings;
-      
+
       return state;
 
     case UsersActions.ADD_BABY: // action.payload is baby: Baby

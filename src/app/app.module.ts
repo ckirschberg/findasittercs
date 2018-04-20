@@ -27,6 +27,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { RatingComponent } from './rating/rating.component';
 import {MatButtonModule} from '@angular/material/button';
 
+import { createEpicMiddleware, combineEpics } from "redux-observable";
+import { createLogger } from "redux-logger";
+import { UsersEpic } from './users.epic';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,17 +53,33 @@ import {MatButtonModule} from '@angular/material/button';
     MatInputModule,MatButtonModule,
     NgReduxModule,   NgReduxRouterModule.forRoot()
   ],
-  providers: [AuthGuard, AuthService, DataService, UsersActions, UsersService],
+  providers: [AuthGuard, AuthService, DataService, UsersActions, UsersService, UsersEpic],
   bootstrap: [AppComponent]
 })
 export class AppModule {
 
   constructor(private ngRedux: NgRedux<IAppState>,
     private devTool: DevToolsExtension,
-    private ngReduxRouter: NgReduxRouter,) { 
-  
-      this.ngRedux.configureStore(rootReducer, {}, [],[ devTool.isEnabled() ? devTool.enhancer() : f => f]);
-      ngReduxRouter.initialize(/* args */);  
+    private ngReduxRouter: NgReduxRouter, private usersEpic: UsersEpic) { 
+      
+      const rootEpic = combineEpics(
+        // Each epic is referenced here.
+        this.usersEpic.getUsers, this.usersEpic.createBaby
+      );
+
+        // Middleware
+           // http://redux.js.org/docs/advanced/Middleware.html
+           // https://github.com/angular-redux/store/blob/master/articles/epics.md
+           // const epicMiddleware = createEpicMiddleware(rootEpic);
+           const middleware = [
+             createEpicMiddleware(rootEpic), createLogger({ level: 'info', collapsed: true })
+           ];
+           
+           this.ngRedux.configureStore(
+             rootReducer,
+             {}, middleware,[ devTool.isEnabled() ? devTool.enhancer() : f => f]);
+      // this.ngRedux.configureStore(rootReducer, {}, [],[ devTool.isEnabled() ? devTool.enhancer() : f => f]);
+      // ngReduxRouter.initialize(/* args */);  
   }
  }
  
