@@ -23,30 +23,30 @@ export class DataService {
     },
   ];
 
-  private sitters: Sitter[] = [
-    {
-      ratings: [],
-      firstname: 'Bob',
-      lastname: 'Alisan',
-      age: 16,
-      yearsOfExperience: 0,
-      region: 'Greater Copenhagen',
-      picture: 'not yet',
-      gender: 'Male',
-      phone: '12345678'
-    },
-    {
-      ratings: [],
-      firstname: 'Christian',
-      lastname: 'Kirschberg',
-      age: 29,
-      yearsOfExperience: 8,
-      region: 'Greater Copenhagen',
-      picture: 'not yet',
-      gender: 'Male',
-      phone: '87654321'
-    },
-  ];
+  // private sitters: Sitter[] = [
+  //   {
+  //     ratings: [],
+  //     firstname: 'Bob',
+  //     lastname: 'Alisan',
+  //     age: 16,
+  //     yearsOfExperience: 0,
+  //     region: 'Greater Copenhagen',
+  //     picture: 'not yet',
+  //     gender: 'Male',
+  //     phone: '12345678'
+  //   },
+  //   {
+  //     ratings: [],
+  //     firstname: 'Christian',
+  //     lastname: 'Kirschberg',
+  //     age: 29,
+  //     yearsOfExperience: 8,
+  //     region: 'Greater Copenhagen',
+  //     picture: 'not yet',
+  //     gender: 'Male',
+  //     phone: '87654321'
+  //   },
+  // ];
 
   constructor() { }
 

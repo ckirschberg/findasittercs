@@ -5,3 +5,7 @@
     (babyClicked)="onBabyClicked($event)">
   </app-user>
 </div>
+
+<div *ngFor="let sitter of sitters; let i=index">
+  {{sitter.firstname}} {{averages[i]}}
+</div>

@@ -1,0 +1,10 @@
+
+<form novalidate (submit)="onSubmit()">
+  <mat-form-field >
+    <input matInput placeholder="Rating (1-5)" name="rating"
+      [(ngModel)]="rating">
+  </mat-form-field>
+
+  <button mat-raised-button color="primary">Save rating</button>
+</form>  
+

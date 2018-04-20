@@ -9,7 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ContactComponent } from './contact/contact.component';
 import { RegisterComponent } from './register/register.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
@@ -24,6 +24,8 @@ import { IAppState } from './store/store';
 import { NgReduxRouter, NgReduxRouterModule } from '@angular-redux/router';
 import { UsersActions } from './users.actions';
 import { HttpClientModule } from '@angular/common/http';
+import { RatingComponent } from './rating/rating.component';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -33,15 +35,17 @@ import { HttpClientModule } from '@angular/common/http';
     RegisterComponent,
     PageNotFoundComponent,
     UsersListComponent,
-    UserComponent
+    UserComponent,
+    RatingComponent
   ],
   imports: [
+    FormsModule,
     HttpClientModule,
     BrowserModule,
     ReactiveFormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatInputModule,
+    MatInputModule,MatButtonModule,
     NgReduxModule,   NgReduxRouterModule.forRoot()
   ],
   providers: [AuthGuard, AuthService, DataService, UsersActions, UsersService],

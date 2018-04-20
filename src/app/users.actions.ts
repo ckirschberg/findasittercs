@@ -11,7 +11,15 @@ export class UsersActions {
    
    static SET_TYPE: string = 'SET_TYPE';
    static ADD_BABY: string = 'ADD_BABY';
+   static ADD_RATING: string = 'ADD_RATING';
    
+    addRating(id: string, rating: number) {
+      this.ngRedux.dispatch({
+        type: UsersActions.ADD_RATING,
+        payload: { rating, id }
+      })
+    }
+
    setType(isBaby: boolean): void {
     this.ngRedux.dispatch({
        type: UsersActions.SET_TYPE,
