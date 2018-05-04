@@ -1,3 +1,12 @@
+
+{{ birthdate | date | lowercase }}
+<p>
+  {{ 0.743 | percent }}
+</p>
+<p>
+  {{ 132 | currency }}
+</p>
+
 <form [formGroup]="loginForm" novalidate 
   (submit)="onSubmitLogin(loginForm)">
   

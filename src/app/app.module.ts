@@ -1,3 +1,4 @@
+import { FilterBabies } from './babies.filter';
 import { UsersService } from './users.service';
 import { DataService } from './data.service';
 import { BrowserModule } from '@angular/platform-browser';
@@ -41,7 +42,8 @@ import { UsersEpic } from './users.epic';
     PageNotFoundComponent,
     UsersListComponent,
     UserComponent,
-    RatingComponent
+    RatingComponent,
+    FilterBabies
   ],
   imports: [
     FormsModule,
@@ -53,7 +55,8 @@ import { UsersEpic } from './users.epic';
     MatInputModule,MatButtonModule,
     NgReduxModule,   NgReduxRouterModule.forRoot()
   ],
-  providers: [AuthGuard, AuthService, DataService, UsersActions, UsersService, UsersEpic],
+  providers: [AuthGuard, AuthService, DataService, UsersActions, 
+    UsersService, UsersEpic],
   bootstrap: [AppComponent]
 })
 export class AppModule {
@@ -64,7 +67,7 @@ export class AppModule {
       
       const rootEpic = combineEpics(
         // Each epic is referenced here.
-        this.usersEpic.getUsers, this.usersEpic.createBaby
+        this.usersEpic.getUsers, //this.usersEpic.createBaby
       );
 
         // Middleware

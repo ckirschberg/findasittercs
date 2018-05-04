@@ -28,19 +28,19 @@ getUsers = (action$: ActionsObservable<any>) => {
         }));
   });
 }
-createBaby = (action$: ActionsObservable<any>) => {
-  return action$.ofType(**change to something else**) // Listen for this action
-    .mergeMap(({payload}) => { // payload: (subject: Subject, date: Date): When this action is activated, call ws through service class or directly like below
-        return this.usersService.getUsers() // createUser
-          .map((result: any[]) => ({ // when web service responds with success, call this action with payload that came back from webservice
-            type: UsersActions**Success at creating new user
-            payload: result.filter(baby => baby.customerId === '3')
-          }))
-          .catch(error => Observable.of({ // when web service responds with failure, call this action with payload that came back from webservice
-            type: UsersActions,
-            payload: error
-        }));
-  });
-}
+// createBaby = (action$: ActionsObservable<any>) => {
+//   return action$.ofType(**change to something else**) // Listen for this action
+//     .mergeMap(({payload}) => { // payload: (subject: Subject, date: Date): When this action is activated, call ws through service class or directly like below
+//         return this.usersService.getUsers() // createUser
+//           .map((result: any[]) => ({ // when web service responds with success, call this action with payload that came back from webservice
+//             type: UsersActions**Success at creating new user
+//             payload: result.filter(baby => baby.customerId === '3')
+//           }))
+//           .catch(error => Observable.of({ // when web service responds with failure, call this action with payload that came back from webservice
+//             type: UsersActions,
+//             payload: error
+//         }));
+  // });
+// }
 
 }

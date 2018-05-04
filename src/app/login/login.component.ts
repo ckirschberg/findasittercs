@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   private loginForm: FormGroup;
+
+  private birthdate: Date = new Date(2017,5,17); // 0 indexed month in javascript.
   
   // DI - Dependency Injection
   constructor(private fb: FormBuilder, private router: Router, 

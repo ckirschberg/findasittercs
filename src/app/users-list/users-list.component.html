@@ -1,5 +1,9 @@
 
-<div *ngFor="let baby of babies" class="e2e-baby">
+  <mat-form-field >
+    <input matInput placeholder="Search" [(ngModel)]="search">
+  </mat-form-field>
+
+<div *ngFor="let baby of babies | filterBabies: search" class="e2e-baby">
   <app-user 
     [babyInput]="baby"
     (babyClicked)="onBabyClicked($event)">
